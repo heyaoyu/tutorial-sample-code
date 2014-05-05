@@ -118,7 +118,53 @@ function _regexp(){
 }
 
 function _function(){
-    
+    var sum = function(x, y){
+        return x+y;
+    };
+    // <=> //
+    //    function sum(x, y){
+    //        return x+y;
+    //    }
+    var anotherSum = sum;
+    sum = null;
+    console.log(anotherSum(4, 2));
+
+    function factorial(num){
+        if (num <= 1){
+            return 1;
+        }else{
+            return num * factorial(num-1)
+        }
+    }
+    console.log("f(3)="+factorial(3));
+
+    function factorial2(num){
+        if (num <= 1){
+            return 1;
+        }else{
+            return num * arguments.callee(num-1);
+        }
+    }
+    console.log("f(3)="+factorial2(3));
+
+    function outer(){
+        inner();
+    }
+
+    function inner(){
+        console.log("outer.inner is "+arguments.callee.caller);
+    }
+
+    outer();
+}
+
+function _global(){
+    console.log("encodeURI"+encodeURI("http://baidu.com#ref=none"));
+    console.log("encodeURIComponent"+encodeURIComponent("http://baidu.com#ref=none"));
+    console.log(Math.random());
+    console.log(Math.ceil(4.4));
+    console.log(Math.floor(4.4));
+    console.log(Math.round(4.4));
 }
 
 function main(){
@@ -126,6 +172,8 @@ function main(){
     _array();
     _date();
     _regexp();
+    _function();
+    _global();
 }
 
 (main)();
