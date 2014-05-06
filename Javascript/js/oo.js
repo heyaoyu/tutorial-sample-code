@@ -115,10 +115,12 @@ function hybridExtend(){
     }
 
     function SubType(colors){
+        // extend attributes
         SuperType.call(this, colors);
         this.other = "other";
     }
 
+    // extend functions
     SubType.prototype = new SuperType();
     SubType.prototype.constructor = SubType;
 

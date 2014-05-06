@@ -103,7 +103,7 @@ function _regexp(){
     var exp1 = /\[bc\]at/i; // match [bc]at
     var exp2 = new RegExp("\\[bc\\]at", "i") // the same as exp1 but with complex string.
 
-    var exp = /(..)or(.)/; // if with "g", matches will fail..
+    var exp = /(..)or(.)/; // if with "g", /(..)or(.)/g, matches will fail..
     var str = "This is a short sentence.";
     console.log(exp.test(str));
 
