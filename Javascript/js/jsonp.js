@@ -1,3 +1,9 @@
+/*
+*
+* jsonp --> same-origin policy: Read: Deny, Write: Limit, Execute: Allow
+*
+* */
+
 function jsonp(){
     var script = document.createElement("script");
     script.src = "http://localhost:8888/jsonp_service";
