@@ -27,7 +27,8 @@ class CometStreamHandler(tornado.web.RequestHandler):
     def get(self, *args, **kwargs):
         i = 0
         while True:
-            self.flush(i)
+            self.write(unicode(i))
+            self.flush()
             time.sleep(3)
             i += 1
             if i == 3:

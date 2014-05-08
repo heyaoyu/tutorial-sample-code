@@ -7,10 +7,13 @@
 
 function main(){
     var xhr = createXHR();
+    var dataStart = 0;
     xhr.open("get", "/comet_service", true);
     xhr.onreadystatechange = function(){
-        if(xhr.readyState == 3 || xhr.readyState == 4){ // important, some data get will be 3
-            alert(xhr.responseText);
+        if(xhr.readyState == 3){ // important, some data get will be 3
+            var data = xhr.responseText.substring(dataStart);
+            alert(data);
+            dataStart += data.length;
         }
     }
     xhr.send(null);
