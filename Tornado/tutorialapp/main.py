@@ -50,7 +50,13 @@ class WebSocketDemoHandler(tornado.websocket.WebSocketHandler):
 
 
 def main():
-    root = os.path.realpath(__file__).rpartition("/")[0]+'/../../Javascript'
+    import platform
+    os_name = platform.uname()[0]
+    if os_name == 'Windows':
+        import sys
+        reload(sys)
+        sys.setdefaultencoding('GBK')
+    root = os.path.realpath(__file__).rpartition(os.sep)[0]+os.sep+".."+os.sep+".."+os.sep+"Javascript";
     application = tornado.web.Application([
         (r"/", MainHandler),
         (r"/jsonp_service", JSONPHandler),
