@@ -1,9 +1,13 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 import os
 import time
 import json
 
 import tornado.ioloop
 import tornado.web
+import tornado.websocket
 
 
 class MainHandler(tornado.web.RequestHandler):
@@ -34,6 +38,16 @@ class CometStreamHandler(tornado.web.RequestHandler):
             if i == 3:
                 break
 
+class WebSocketDemoHandler(tornado.websocket.WebSocketHandler):
+    def open(self):
+        print "WebSocket opened"
+
+    def on_message(self, message):
+        self.write_message(u"You said: " + message)
+
+    def on_close(self):
+        print "WebSocket closed"
+
 
 def main():
     root = os.path.realpath(__file__).rpartition("/")[0]+'/../../Javascript'
@@ -42,6 +56,7 @@ def main():
         (r"/jsonp_service", JSONPHandler),
         (r"/post_service", PostForAjaxHandler),
         (r"/comet_service", CometStreamHandler),
+        (r"/websocket_service", WebSocketDemoHandler),
         (r"/(.*)", tornado.web.StaticFileHandler, dict(path=root)),
     ])
     application.listen(8888)
