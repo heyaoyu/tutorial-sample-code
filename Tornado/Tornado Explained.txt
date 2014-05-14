@@ -1,0 +1,28 @@
+This is Tornado source code reading note.
+Understand every lines of code !
+
+2014-05-13
+http://www.tornadoweb.org/en/stable/ioloop.html
+- An I/O event loop for non-blocking sockets.
+- IOLoop Singleton use double checking for multiple-threaded environment.
+? IOLoop.add_timeout is a non-blocking alternative to time.sleep.
+? timeout, callback, future, run_sync.
+- IOLoop.initialize():
+  Take advantage of os pipe to wake the main event loop.
+
+2014-05-14
+Socket revision
+- Python socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1) to
+  conveniently debug.
+- Client socket send and read, if other client close, the connection reset will occur.
+- socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+- blocking and non-blocking socket. non-blocking use select or poll or epoll or kqueue.
+- Server 3 ways to handle client socket:
+  - one thread per socket, if blocking socket and client side socket died. it will
+  cost long time to cycle the resource.
+  - fork new process per socket
+  - restructure non-blocking sockets and use select.
+- Fundamental truth of sockets:
+  messages musth either be fixed length or delimited or indicate how long or
+  end by shutting down connection.
+
