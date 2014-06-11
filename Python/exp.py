@@ -9,29 +9,33 @@ def parse_to_infix(exp):
     if char in ('('):
       ret.append(char)
       start = i+1
+      just_right = False
     elif char in (')'):
       end = i
-      if start < end:
+      if start<=end:
         number = exp[start:end]
         ret.append(int(number))
         ret.append(char)
-        just_right = True
+      just_right = True
     elif char in ('+','-','*','/'):
       end = i
       if not just_right:
-        if start < end:
+        if start<=end:
           number = exp[start:end]
           ret.append(int(number))
           ret.append(char)
           start = i+1
       else:
         ret.append(char)
-        start = i + 1
-        just_right = False
+        start = i+1
+      just_right = False
     else:
-      pass
-  if not just_right:
-    if start<end:
+      just_right = False
+  if just_right:
+    pass
+  else:
+    end = len(exp)
+    if start<=end:
       number = exp[start:end]
       ret.append(int(number))
   if ret[len(ret)-1] in ('+','-','*','/'):
