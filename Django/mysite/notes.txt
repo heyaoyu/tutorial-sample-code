@@ -1,0 +1,15 @@
+--Commands
+python django-admin.py startproject mysite
+python manage.py runserver
+python manage.py startapp polls
+python manage.py sql polls
+python manage.py sql syncdb
+
+
+--django utils
+django.utils.timezone
+
+
+--code complete :)
+Poll.objects.filter(question__startswith='What')
+Poll.objects.get(pk=1)
