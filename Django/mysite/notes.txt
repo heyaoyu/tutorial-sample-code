@@ -8,6 +8,9 @@ python manage.py sql syncdb
 
 --django utils
 django.utils.timezone
+django.http.HttpResponse
+from django.conf.urls import patterns, url
+from django.shortcuts import render, get_object_or_404
 
 
 --code complete :)
