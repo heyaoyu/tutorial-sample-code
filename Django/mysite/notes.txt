@@ -5,6 +5,10 @@ python manage.py startapp polls
 python manage.py sql polls
 python manage.py sql syncdb
 
+python manage.py schemamigration southtut --initail
+python manage.py migrate southtut
+python manage.py schemamigration southtut --auto
+
 
 --django utils
 django.utils.timezone
@@ -12,6 +16,9 @@ django.http.HttpResponse
 from django.conf.urls import patterns, url
 from django.shortcuts import render, get_object_or_404
 from django.core.urlresolvers import reverse
+
+from django.contrib.auth.models import User
+user=User.objects.create_superuser('name','emailname@demon.com','password')
 
 
 --code complete :)
