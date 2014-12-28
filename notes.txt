@@ -1,0 +1,19 @@
+2014-12-28 -- Django Tutorial 1.7 Learning
+
+https://docs.djangoproject.com/en/1.7/intro/tutorial01/
+
+- django-admin.py startproject mysite to create a project;
+- python manage.py migrate to apply all installed app's database changes;
+- Edit INSTALLED_APPS settings, python manage.py makemigrations to
+  tell django that you have made change on models and you would like the change
+  to be stored as migration;
+- python manage.py sqlmigrate polls 0001 to show sql of polls_0001 migration;
+* Change Model -> makemigrations -> migrate;
+* manage.py set sys.path -> set DJANGO_SETTINGS_MODULE Environment -> django.setup()
+- python manage.py shell
+- django.utils.timezone, datetime.timedelta(days=1)
+* Question.objects.get(pub_date__year=2014), q.choice_set.create(...), q.choice_set.filter(choice_text__startswith='J')
+
+https://docs.djangoproject.com/en/1.7/intro/tutorial02/
+
+- python manage.py createsuperuser
