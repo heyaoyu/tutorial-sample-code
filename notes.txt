@@ -17,3 +17,11 @@ https://docs.djangoproject.com/en/1.7/intro/tutorial01/
 https://docs.djangoproject.com/en/1.7/intro/tutorial02/
 
 - python manage.py createsuperuser
+- Admin
+
+2014-12-29 -- Django Tutorial 1.7 Learning
+
+https://docs.djangoproject.com/en/1.7/intro/tutorial03/
+
+- create urls.py under app
+- create templates folder under app, create app_name folder under templates(for namespacing)
