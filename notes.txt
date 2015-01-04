@@ -25,3 +25,5 @@ https://docs.djangoproject.com/en/1.7/intro/tutorial03/
 
 - create urls.py under app
 - create templates folder under app, create app_name folder under templates(for namespacing)
+- template url, url namespacing
+- render, get_object_or_http404 shortcut
