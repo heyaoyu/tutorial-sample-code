@@ -50,3 +50,15 @@ https://docs.djangoproject.com/en/1.7/intro/tutorial06/
 https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 - python manage.py collectstatic
+
+2015-01-04 -- RDM Debriefing (Nginx, Tornado, Django)
+
+- Nginx reverse proxy via http and fastcgi
+- Nginx hosting https
+- Tornado auth_login, login_required, api_doc, handler
+- Django Authentication_backends, auth_user_model
+- Django django.core.utils.reverse
+- JQuery autocomplete
+- LDAP option referals
+- customize upload_to, function_tools.partial
+- Djaong Paginator and Form
