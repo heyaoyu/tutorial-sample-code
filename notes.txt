@@ -37,4 +37,8 @@ https://docs.djangoproject.com/en/1.7/intro/tutorial04/
 
 https://docs.djangoproject.com/en/1.7/intro/tutorial05/
 
-- test
+- automated testing
+- test.py, extends TestCase
+- python manage.py test polls
+- test view, which should be experienced via browser
+- django.test.Client and django.test.utils.setup_test_environment
